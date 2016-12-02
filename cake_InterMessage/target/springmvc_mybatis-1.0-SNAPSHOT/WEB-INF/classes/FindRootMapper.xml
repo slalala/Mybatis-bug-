@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//com.mapper.mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.FindRootMapper">
+
+    <sql id="NamePass">
+        <if test="name!=null and name!='' and password !=null and password!=''">
+            name=#{name} AND password =#{password}
+        </if>
+    </sql>
+
+    <select id="find" parameterType="root" resultType="root">
+        SELECT * FROM user WHERE 1=1
+        <!--<where>
+            <include refid="NamePass"></include>
+        </where>-->
+    </select>
+</mapper>
